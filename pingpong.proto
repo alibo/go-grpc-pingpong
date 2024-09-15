@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pingpong;
+
+// Define the Go package path for the generated code
+option go_package = "./pkg/pingpong";
+
+service PingPong {
+    rpc Ping(PingRequest) returns (PongResponse);
+}
+
+message PingRequest {
+    string message = 1;
+}
+
+message PongResponse {
+    string message = 1;
+}
+
