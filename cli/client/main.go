@@ -30,9 +30,6 @@ func percentile(latencies []float64, percent float64) float64 {
 }
 
 func main() {
-	// Set DNS re-resolution interval to handle new server pods
-	os.Setenv("GRPC_GO_RESOLVER_DNS_MIN_TIME_BETWEEN_RESOLUTIONS", "5")
-
 	// Get the server address from the environment variable
 	serverAddress := os.Getenv("SERVER_ADDRESS")
 	if serverAddress == "" {
