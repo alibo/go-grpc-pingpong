@@ -11,7 +11,7 @@ RUN go mod download
 COPY . .
 
 # Build the server binary
-RUN go build -o server cli/server
+RUN go build -o server ./cli/server
 
 # Stage 2: Runtime Stage
 FROM debian:bullseye-slim

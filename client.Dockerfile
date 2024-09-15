@@ -11,7 +11,7 @@ RUN go mod download
 COPY . .
 
 # Build the client binary
-RUN go build -o client cli/client
+RUN go build -o client ./cli/client
 
 # Stage 2: Runtime Stage
 FROM debian:bullseye-slim
