@@ -11,15 +11,17 @@ RUN go mod download
 COPY . .
 
 # Build the client binary
-RUN go build -o client ./cli/client
+RUN go build -o client ./cli/client-connection-pool
 
 # Stage 2: Runtime Stage
 FROM debian:bullseye-slim
 
 WORKDIR /app
 
-# Set the default server address (can be overridden at runtime)
 ENV SERVER_ADDRESS=dns:///server-headless:5001
+ENV POOL_MAX_CONNS=250
+ENV POOL_MIN_CONNS=20
+ENV POOL_IDLE_TIMEOUT=10s
 
 # Copy the client binary from the builder stage
 COPY --from=builder /app/client .

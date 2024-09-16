@@ -5,6 +5,7 @@ go 1.21
 toolchain go1.23.1
 
 require (
+	github.com/processout/grpc-go-pool v1.2.1
 	google.golang.org/grpc v1.66.2
 	google.golang.org/protobuf v1.34.2
 )
